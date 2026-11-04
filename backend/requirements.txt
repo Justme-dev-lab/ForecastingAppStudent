@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pydantic-settings
+numpy>=2        # file prep_*.pkl merujuk numpy._core (hanya ada di numpy 2.x)
+pandas
+scikit-learn==1.6.1    # idealnya sama dengan versi di Kaggle (lihat catatan di README)
+torch
+pytest
+httpx

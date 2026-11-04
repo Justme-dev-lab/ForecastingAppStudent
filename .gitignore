@@ -1,0 +1,27 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Rahasia dan konfigurasi lokal
+.env
+.env.*
+!.env.example
+kaggle.json
+
+# Model (simpan di tempat lain, lihat README)
+backend/ml_models/*.pt
+backend/ml_models/*.pkl
+
+# Node dan build
+node_modules/
+dist/
+
+# Editor dan sistem
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
