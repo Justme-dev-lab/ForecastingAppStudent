@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 
 from app.api.deps import get_registry
-from app.schemas.prediction import ModelInfo
+from app.schemas.forecast import ModelInfo
 from app.services.registry import ModelRegistry
 
 router = APIRouter(tags=["Models"])

@@ -27,12 +27,19 @@ def load_prep(path: Path) -> TabPrep:
 
 
 def load_checkpoint(path: Path) -> dict:
-    # weights_only=True: hanya tensor & tipe dasar yang boleh dimuat.
-    return torch.load(path, map_location="cpu", weights_only=True)
+    # Utamakan weights_only=True (hanya tensor & tipe dasar).
+    try:
+        return torch.load(path, map_location="cpu", weights_only=True)
+    except pickle.UnpicklingError:
+        # Checkpoint versi baru menyimpan y_mu/y_sd sebagai numpy array, yang ditolak mode aman.
+        # File ini berasal dari folder ml_models milik sendiri, jadi dimuat tanpa pembatasan.
+        # JANGAN memuat checkpoint dari sumber yang tidak dipercaya dengan cara ini.
+        return torch.load(path, map_location="cpu", weights_only=False)
 
 
 def build_model(ckpt: dict) -> FTTransformer:
-    model = FTTransformer(len(ckpt["num_cols"]), ckpt["cards"], ckpt["hp"])
+    n_out = ckpt["state_dict"]["head.2.weight"].shape[0]      # 1 target (lama) atau 2 target (baru)
+    model = FTTransformer(len(ckpt["num_cols"]), ckpt["cards"], ckpt["hp"], n_out=n_out)
     model.load_state_dict(ckpt["state_dict"], strict=True)   # nama & ukuran bobot harus cocok persis
     model.eval()
     return model

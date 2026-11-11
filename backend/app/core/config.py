@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parents[2]  # folder backend/
 
 
 class Settings(BaseSettings):
-    app_name: str = "API Prediksi Nilai NUM Sekolah SMA"
+    app_name: str = "API Forecasting NUM dan LIT Sekolah SMA"
     app_version: str = "1.0.0"
     api_v1_prefix: str = "/api/v1"
 
@@ -20,7 +20,7 @@ class Settings(BaseSettings):
         "http://localhost:3000",
     ]
 
-    model_config = SettingsConfigDict(env_file=".env")
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")   # abaikan baris .env yang tidak dikenal
 
 
 settings = Settings()

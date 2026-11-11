@@ -73,17 +73,18 @@ class Block(nn.Module):
 
 
 class FTTransformer(nn.Module):
-    def __init__(self, n_num, cards, hp):
+    def __init__(self, n_num, cards, hp, n_out=1):
         super().__init__()
         d = hp["d_token"]
         self.tok = FeatureTokenizer(n_num, cards, d)
         self.blocks = nn.ModuleList([
             Block(d, hp["n_heads"], hp["d_ffn_factor"], hp["attention_dropout"], hp["ffn_dropout"],
                   hp["residual_dropout"], first=(i == 0)) for i in range(hp["n_layers"])])
-        self.head = nn.Sequential(nn.LayerNorm(d), nn.ReLU(), nn.Linear(d, 1))
+        self.head = nn.Sequential(nn.LayerNorm(d), nn.ReLU(), nn.Linear(d, n_out))
 
     def forward(self, xn, xc):
         x = self.tok(xn, xc)
         for b in self.blocks:
             x = b(x)
-        return self.head(x[:, 0]).squeeze(-1)
+        out = self.head(x[:, 0])
+        return out.squeeze(-1) if out.shape[-1] == 1 else out    # (B,) bila 1 target, (B, n_out) bila banyak

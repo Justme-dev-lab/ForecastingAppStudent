@@ -24,11 +24,13 @@ class ModelInfo(BaseModel):
     name: str
     description: str
     is_default: bool
+    rmse_test: float | None = None          # galat uji model ini (fold main_2025)
+    rmse_persistence: float | None = None   # galat uji "salin skor tahun lalu" (pembanding)
     numeric_fields: list[NumericFieldInfo]
     categorical_fields: list[CategoricalFieldInfo]
 
 
-class PredictRequest(BaseModel):
+class ForecastRequest(BaseModel):
     # Hanya kirim field yang diisi. Numerik kosong -> median training.
     features: dict[str, float | str | None] = Field(default_factory=dict)
 
@@ -39,9 +41,15 @@ class PredictRequest(BaseModel):
     }
 
 
-class PredictResponse(BaseModel):
+class ForecastResponse(BaseModel):
     model_id: str
-    prediction: float
+    forecast_num: float                    # forecast NUM (target pertama), sama dengan forecast['num']
     previous_score: float | None = None    # num_lag1, untuk pembanding
-    change: float | None = None            # prediction - previous_score
+    change: float | None = None            # forecast_num - previous_score
+    forecast: dict[str, float] = {}        # semua target, mis. {"num": 54.0, "lit": 62.3}
+    previous: dict[str, float] = {}        # skor tahun lalu per target
+    changes: dict[str, float] = {}         # selisih per target
     n_filled_by_default: int               # jumlah field numerik yang diisi median
+    n_missing_categorical: int = 0         # kategori kosong -> indeks UNK (tidak pernah dilatih!)
+    rmse_test: float | None = None
+    rmse_persistence: float | None = None

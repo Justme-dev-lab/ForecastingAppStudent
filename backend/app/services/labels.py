@@ -3,6 +3,7 @@ Field yang tidak ada di sini tetap berfungsi: labelnya dibuat dari nama kolom.""
 
 LABELS = {
     "num_lag1": "Skor NUM tahun sebelumnya",
+    "lit_lag1": "Skor LIT tahun sebelumnya",
     # identitas & wilayah
     "jenis_sek": "Jenis sekolah",
     "sts_sek": "Status sekolah",
@@ -51,7 +52,7 @@ def label_for(name: str) -> str:
 
 
 def group_for(name: str) -> str:
-    if name == "num_lag1":
+    if name in ("num_lag1", "lit_lag1"):
         return "Skor tahun sebelumnya"
     if name in _IDENTITAS:
         return "Identitas & wilayah"
