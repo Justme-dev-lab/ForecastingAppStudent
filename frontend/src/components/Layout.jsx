@@ -2,12 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Icon from './Icon.jsx';
 import { fmtDate } from '../lib/data.js';
-import { USE_MOCK } from '../services/predictionService.js';
+import { USE_MOCK } from '../services/forecastService.js';
 import { getState, logout, setState, useStore } from '../lib/store.js';
 
 const NAV = [
   { h: 'Data', items: [['upload', '/upload', 'upload', 'Unggah Data'], ['riwayat', '/upload/riwayat', 'clock', 'Riwayat Unggahan']] },
-  { h: 'Analisis', items: [['forecasting', '/forecasting', 'trend', 'Simulasi Forecasting'], ['prediksi', '/prediksi', 'trend', 'Prediksi Manual']] },
+  { h: 'Analisis', items: [['forecasting', '/forecasting', 'trend', 'Simulasi Forecasting']] },
+  { h: 'Akun', items: [['profil', '/profil', 'school', 'Profil']] },
   { h: 'Bantuan', items: [['bantuan', '/bantuan', 'file', 'Format Data'], ['model', '/model', 'info', 'Tentang Model']] },
 ];
 
@@ -20,7 +21,7 @@ export default function Shell({ nav, crumb, children }) {
   const [pop, setPop] = useState(null); // 'bell' | 'avatar' | null
   const actionsRef = useRef(null);
 
-  useEffect(() => { document.title = `${crumb[crumb.length - 1]} · Rapor NUM`; }, [crumb]);
+  useEffect(() => { document.title = `${crumb[crumb.length - 1]} · EduCast`; }, [crumb]);
   useEffect(() => {
     const onClick = e => { if (!actionsRef.current?.contains(e.target)) setPop(null); };
     const onKey = e => { if (e.key === 'Escape') { setPop(null); setMenuOpen(false); } };
@@ -44,9 +45,9 @@ export default function Shell({ nav, crumb, children }) {
   return (
     <div className={`app${menuOpen ? ' nav-open' : ''}`}>
       <aside className="side" id="side">
-        <Link className="brand" to="/"><img className="logo" src="/logo.png" alt="" width="36" height="36" />Rapor NUM</Link>
+        <Link className="brand" to="/"><img className="logo" src="/logo.png" alt="" width="36" height="36" />EduCast</Link>
         <div className="school-chip"><b>{school.nama}</b><span className="muted">Kode sekolah {school.kode}</span></div>
-        {USE_MOCK && <div className="callout" role="note"><span>Mode mock aktif: hasil prediksi bukan dari model asli.</span></div>}
+        {USE_MOCK && <div className="callout" role="note"><span>Mode mock aktif: hasil forecasting bukan dari model asli.</span></div>}
         <nav className="nav" aria-label="Menu utama">
           {NAV.map(g => (
             <div key={g.h} style={{ display: 'contents' }}>
@@ -91,6 +92,7 @@ export default function Shell({ nav, crumb, children }) {
             {pop === 'avatar' && (
               <div className="pop" style={{ width: 260 }}>
                 <div className="pop-h" style={{ fontWeight: 600, fontSize: 14, overflowWrap: 'anywhere' }}>{email}<div className="muted" style={{ fontWeight: 400, fontSize: 13 }}>{school.nama}</div></div>
+                <Link className="pop-item" to="/profil" onClick={() => setPop(null)} style={{ textDecoration: 'none' }}><Icon name="school" />Profil</Link>
                 <button className="pop-item" type="button" onClick={() => { logout(); navigate('/masuk'); }}><Icon name="out" />Keluar</button>
               </div>
             )}

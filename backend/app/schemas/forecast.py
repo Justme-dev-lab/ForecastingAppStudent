@@ -24,8 +24,8 @@ class ModelInfo(BaseModel):
     name: str
     description: str
     is_default: bool
-    rmse_test: float | None = None          # galat uji model ini (fold main_2025)
-    rmse_persistence: float | None = None   # galat uji "salin skor tahun lalu" (pembanding)
+    rmse_test: dict[str, float] | None = None          # galat uji model ini (fold main_2025)
+    rmse_persistence: dict[str, float] | None = None   # galat uji "salin skor tahun lalu" (pembanding)
     numeric_fields: list[NumericFieldInfo]
     categorical_fields: list[CategoricalFieldInfo]
 
@@ -51,5 +51,5 @@ class ForecastResponse(BaseModel):
     changes: dict[str, float] = {}         # selisih per target
     n_filled_by_default: int               # jumlah field numerik yang diisi median
     n_missing_categorical: int = 0         # kategori kosong -> indeks UNK (tidak pernah dilatih!)
-    rmse_test: float | None = None
-    rmse_persistence: float | None = None
+    rmse_test: dict[str, float] | None = None
+    rmse_persistence: dict[str, float] | None = None

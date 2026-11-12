@@ -61,7 +61,7 @@ export default function Upload() {
   function finish(f, text) {
     const r = analyze(text, school);
     const rec = { id: 'u' + Date.now(), name: f.name, size: f.size, time: Date.now(), status: r.ok ? 'ok' : 'gagal', checks: r.checks, rows: r.rows || 0, cols: r.cols || 0 };
-    if (r.ok) Object.assign(rec, { years: r.years, series: r.series, preview: r.preview });
+    if (r.ok) Object.assign(rec, { years: r.years, seriesBy: r.seriesBy, targets: r.targets, schools: r.schools, lastRow: r.lastRow, preview: r.preview });
     else Object.assign(rec, { kind: r.kind, message: r.message, fixes: r.fixes });
     setState({ uploads: [rec, ...uploadsOf(getState())].slice(0, 30) });
     if (r.ok) {
@@ -108,7 +108,7 @@ export default function Upload() {
             <div className="muted" style={{ fontSize: 14 }}>atau</div>
             <button className="btn sec" type="button" onClick={() => inputRef.current.click()}>Pilih File</button>
             <input type="file" ref={inputRef} accept=".csv,text/csv" hidden onChange={e => choose(e.target.files[0])} />
-            <div className="muted" style={{ fontSize: 13 }}>Format CSV, maksimal 5 MB. <Link to="/bantuan">Lihat format data</Link></div>
+            <div className="muted" style={{ fontSize: 13 }}>Format CSV.<Link to="/bantuan">Lihat format data</Link></div>
             <div className="err" role="alert">{fileErr}</div>
           </div>
 
@@ -139,10 +139,10 @@ export default function Upload() {
           <div className="card-t">Kolom wajib</div>
           <div className="stack" style={{ gap: 14, fontSize: 14, lineHeight: 1.5 }}>
             <div><code>tahun</code><div className="muted">Bilangan bulat, misalnya 2024.</div></div>
-            <div><code>num</code><div className="muted">Skor numerasi, tidak boleh kosong.</div></div>
+            <div><code>lit</code> dan <code>num</code><div className="muted">Skor literasi (<code>lit</code>) dan numerasi (<code>num</code>). Harus keduanya. Tidak boleh kosong.</div></div>
           </div>
           <div className="muted" style={{ fontSize: 13, lineHeight: 1.5, borderTop: '1px solid var(--border)', paddingTop: 14 }}>
-            Minimal satu tahun data. Jika satu tahun punya banyak baris (misalnya satu baris per siswa), sistem menghitung rata-rata <code>num</code> tiap tahun secara otomatis.
+            Minimal satu tahun data. Jika satu tahun punya banyak baris (misalnya satu baris per siswa), sistem menghitung rata-rata <code>lit</code> dan <code>num</code> tiap tahun secara otomatis.
           </div>
         </aside>
       </div>

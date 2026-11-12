@@ -27,7 +27,7 @@ export default function Bantuan() {
                 <thead><tr><th scope="col">Kolom</th><th scope="col">Isi</th><th scope="col">Aturan</th></tr></thead>
                 <tbody>
                   <tr><td><code>tahun</code></td><td>Tahun data</td><td>Bilangan bulat empat digit, misalnya 2024. Satu tahun saja sudah cukup.</td></tr>
-                  <tr><td><code>num</code></td><td>Skor numerasi</td><td>Angka, tidak boleh kosong. Desimal boleh memakai titik atau koma.</td></tr>
+                  <tr><td><code>lit</code> dan <code>num</code></td><td>Skor literasi (<code>lit</code>) dan skor numerasi (<code>num</code>)</td><td>Wajib memiliki kedua kolom. Angka, tidak boleh kosong. Desimal boleh memakai titik atau koma. Forecasting dibuat untuk setiap kolom yang ada.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -36,15 +36,14 @@ export default function Bantuan() {
             <div className="card-t">Ketentuan file</div>
             <ul className="bullets">
               <li>Format CSV (pemisah koma atau titik koma), baris pertama berisi nama kolom.</li>
-              <li>Ukuran maksimum 5 MB.</li>
-              <li>Kolom lain boleh ada. Kolom yang namanya sama dengan fitur model (misalnya <code>jumlah_peserta_didik</code> atau <code>sts_sek</code>) dipakai dari tahun terakhir untuk memperbaiki prediksi; kolom lainnya diabaikan.</li>
-              <li>Satu tahun boleh punya banyak baris (misalnya satu baris per siswa). Sistem menghitung rata-rata <code>num</code> tiap tahun secara otomatis.</li>
+              <li>Kolom lain boleh ada. Kolom yang namanya sama dengan fitur model (misalnya <code>jumlah_peserta_didik</code> atau <code>sts_sek</code>) dipakai dari tahun terakhir untuk memperbaiki forecast; kolom lainnya diabaikan.</li>
+              <li>Satu tahun boleh punya banyak baris (misalnya satu baris per siswa). Sistem menghitung rata-rata <code>lit</code> dan <code>num</code> tiap tahun secara otomatis.</li>
             </ul>
           </section>
         </div>
         <aside className="grow1 card stack" style={{ gap: 14 }}>
           <div className="card-t">Contoh file</div>
-          <p className="muted" style={{ fontSize: 14, lineHeight: 1.6 }}>Unduh contoh untuk mencoba alur unggah.</p>
+          <p className="muted" style={{ fontSize: 14, lineHeight: 1.6 }}>Unduh contoh untuk mencoba alur unggah. Contoh memuat kolom <code>lit</code> dan <code>num</code> sekaligus.</p>
           <button className="btn" type="button" onClick={() => save('contoh_rapor_benar.csv', sampleCSV(kode, 'benar'))}>Contoh file yang benar</button>
           <button className="btn sec" type="button" onClick={() => save('contoh_rapor_ditolak.csv', sampleCSV(kode, 'campur'))}>Contoh file yang ditolak</button>
           <p className="muted" style={{ fontSize: 13, lineHeight: 1.5 }}>Contoh yang ditolak berisi kolom <code>kd_sekolah</code> dengan beberapa kode sekolah berbeda.</p>

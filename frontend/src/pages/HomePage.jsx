@@ -4,8 +4,7 @@ import Icon from '../components/Icon.jsx';
 
 const CARDS = [
   ['upload', 'Unggah Data', 'Unggah CSV rapor sekolah dan periksa isinya.', '/upload'],
-  ['trend', 'Simulasi Forecasting', 'Prediksi NUM tahun berikutnya dari data yang sudah diunggah.', '/forecasting'],
-  ['trend', 'Prediksi Manual', 'Isi fitur sekolah secara langsung tanpa unggah file.', '/prediksi'],
+  ['trend', 'Simulasi Forecasting', 'Forecasting literasi dan numerasi tahun berikutnya dari data yang sudah diunggah.', '/forecasting'],
 ];
 
 export default function HomePage() {
@@ -13,9 +12,9 @@ export default function HomePage() {
     <Layout nav="beranda" crumb={['Beranda']}>
       <div className="stack" style={{ gap: 8 }}>
         <h1>Beranda</h1>
-        <p className="lead">Pilih cara memprediksi NUM sekolah Anda untuk tahun berikutnya.</p>
+        <p className="lead">Unggah data rapor sekolah, lalu forecasting literasi (LIT) dan numerasi (NUM) tahun berikutnya.</p>
       </div>
-      <div className="row">
+      <div className="row equal">
         {CARDS.map(([icon, title, text, to]) => (
           <section key={to} className="card stack grow1" style={{ gap: 12 }}>
             <span style={{ color: 'var(--primary)' }}><Icon name={icon} size={28} /></span>

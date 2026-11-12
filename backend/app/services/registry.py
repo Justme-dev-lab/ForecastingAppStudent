@@ -21,18 +21,21 @@ DISPLAY = {
     "B_sumberdaya_sekolah": ("Model B: Sumber Daya Sekolah", "Sumber daya sekolah (pendidik, ruang kelas, internet, dst.) dan skor tahun lalu."),
     "C_sosek_siswa": ("Model C: Sosial-Ekonomi Siswa", "Survei latar belakang siswa (agregat sekolah) dan skor tahun lalu."),
     "D_sosek_agregat_iklim_akreditasi": ("Model D: Iklim & Akreditasi", "Indikator iklim sekolah, akreditasi, dan SES agregat, plus skor tahun lalu."),
-    "E_gabungan": ("Model E: Gabungan (utama)", "Semua kelompok fitur. RMSE validasi terbaik di antara model yang dibandingkan."),
-    "E_sel": ("Model E-sel: Fitur Terpilih", "56 fitur teratas hasil seleksi (termasuk skor NUM dan LIT tahun lalu)."),
+    "E_gabungan": ("Model E: Gabungan (utama)", "Semua kelompok fitur sekolah, sosial-ekonomi, dan wilayah."),
+    "E_sel": ("Model E-sel: Fitur Terpilih", "56 fitur teratas hasil seleksi (termasuk skor NUM dan LIT tahun lalu). RMSE validasi terbaik."),
 }
 
-# Nama target sesuai urutan keluaran model (y_mu/y_sd di checkpoint punya panjang yang sama).
-# Target pertama = NUM (rata-rata 52.50 sama dengan model lama). Target kedua DIDUGA LIT
-# (rata-rata 61.21) -- konfirmasi dengan notebook.
 TARGETS = ["num", "lit"]
 
-# RMSE uji per model. KOSONGKAN sampai diisi dari notebook versi baru (angka model lama tidak berlaku).
-PERSISTENCE_RMSE: float | None = None
-RMSE_TEST: dict[str, float] = {}
+PERSISTENCE_RMSE: dict[str, float] = {"num": 5.354, "lit": 7.121}
+RMSE_TEST: dict[str, dict[str, float]] = {
+    "A_identitas_wilayah":              {"num": 6.6111, "lit": 8.1580},
+    "B_sumberdaya_sekolah":             {"num": 6.7632, "lit": 8.0504},
+    "C_sosek_siswa":                    {"num": 6.2540, "lit": 7.8506},
+    "D_sosek_agregat_iklim_akreditasi": {"num": 7.2025, "lit": 8.0262},
+    "E_gabungan":                       {"num": 5.9326, "lit": 8.2902},
+    "E_sel":                            {"num": 6.3846, "lit": 8.2604},
+}
 torch.set_num_threads(2)
 
 

@@ -1,7 +1,7 @@
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Shell from '../components/Layout.jsx';
 import Icon from '../components/Icon.jsx';
-import { fmtInt } from '../lib/data.js';
+import { fmt, fmtInt, labelOf, seriesOf, targetInfo, targetsOf } from '../lib/data.js';
 import { activeUploadOf, setState, uploadsOf, useStore } from '../lib/store.js';
 
 const CRUMB = ['Data', 'Unggah Data', 'Ringkasan'];
@@ -41,7 +41,7 @@ export default function Ringkasan() {
         <div className="stat"><span className="v">{fmtInt(u.rows)}</span><span className="l">Jumlah baris</span></div>
         <div className="stat"><span className="v">{fmtInt(u.cols)}</span><span className="l">Jumlah kolom</span></div>
         <div className="stat"><span className="v">{y0 === y1 ? y0 : `${y0}–${y1}`}</span><span className="l">Rentang tahun</span></div>
-        <div className="stat"><span className="v">1</span><span className="l">Sekolah di file</span></div>
+        <div className="stat"><span className="v">{fmtInt(u.schools ?? 1)}</span><span className="l">Sekolah di file</span></div>
       </section>
 
       <div className="row">
@@ -50,18 +50,20 @@ export default function Ringkasan() {
           <ul className="checks">
             {u.checks.map((c, i) => <li key={i}><Icon name="check" className="y" /><span dangerouslySetInnerHTML={{ __html: c.html }} /></li>)}
           </ul>
-          <div className="callout"><Icon name="info" /><span>Tahun yang punya banyak baris dihitung rata-ratanya, sehingga tiap tahun menjadi satu nilai NUM sekolah.</span></div>
+          <div className="callout"><Icon name="info" /><span>Tahun yang punya banyak baris dihitung rata-ratanya, sehingga tiap tahun menjadi satu nilai sekolah untuk setiap target ({labelOf(targetsOf(u))}).</span></div>
         </section>
 
         <section className="card stack" style={{ flex: '2 1 460px', minWidth: 0, gap: 12 }}>
-          <div className="card-t">Pratinjau baris</div>
+          <div className="card-t">Rata-rata per tahun</div>
           <div className="tablewrap">
             <table>
-              <thead><tr><th scope="col">tahun</th><th scope="col">num</th></tr></thead>
-              <tbody>{u.preview.map((r, i) => <tr key={i}>{r.map((c, j) => <td key={j}>{c}</td>)}</tr>)}</tbody>
+              <thead><tr><th scope="col">Tahun</th>{targetsOf(u).map(k => <th key={k} scope="col">{targetInfo(k).nama} ({targetInfo(k).kode})</th>)}</tr></thead>
+              <tbody>
+                {u.years.map(y => <tr key={y}><td>{y}</td>{targetsOf(u).map(k => <td key={k}>{fmt(seriesOf(u, k)[y])}</td>)}</tr>)}
+              </tbody>
             </table>
           </div>
-          <div className="muted" style={{ fontSize: 13 }}>{u.preview.length} baris pertama.{u.cols > 2 ? ` ${fmtInt(u.cols - 2)} kolom lainnya tidak ditampilkan.` : ''}</div>
+          <div className="muted" style={{ fontSize: 13 }}>Nilai inilah yang dipakai sebagai dasar forecasting. Sel kosong tidak ikut dihitung.</div>
         </section>
       </div>
 

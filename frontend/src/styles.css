@@ -1,4 +1,4 @@
-/* Rapor NUM - gaya bersama. Palet mengikuti desain (biru). */
+/* EduCast - gaya bersama. Palet mengikuti desain (biru). */
 :root{
   --primary:#007bb9;--primary-dark:#006194;--tint:#d9eef8;--soft:#eef2fb;--bg:#faf8ff;
   --surface:#fff;--border:#e3e2e9;--border-strong:#cbccd3;
@@ -159,3 +159,122 @@ td .btn{white-space:nowrap}
 .fgroup>summary{cursor:pointer;padding:14px 18px;font-weight:700;font-size:15px}
 .fgroup .fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding:4px 18px 18px}
 .field .hint{font-size:12px}
+
+
+/* =====================================================================
+   v2.0 - lapisan poles visual (tanpa mengubah struktur / logika)
+   ===================================================================== */
+:root{
+  --bg:#f5f7fc;
+  --shadow-sm:0 1px 2px rgba(19,27,46,.05),0 1px 3px rgba(19,27,46,.04);
+  --shadow-md:0 4px 14px rgba(19,27,46,.07),0 2px 4px rgba(19,27,46,.04);
+  --shadow-lg:0 12px 32px rgba(19,27,46,.12);
+  --grad:linear-gradient(135deg,#0089cc 0%,#006194 100%);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --radius:16px;
+}
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  background:radial-gradient(1000px 420px at 85% -80px,#e3f1fa 0,transparent 70%),var(--bg);background-attachment:fixed}
+::selection{background:var(--tint);color:var(--primary-dark)}
+h1{letter-spacing:-.02em}
+.lead{color:var(--muted)}
+
+/* shell */
+.side{background:linear-gradient(180deg,#fff 0,#fbfcff 100%)}
+.top{background:rgba(255,255,255,.85);backdrop-filter:saturate(1.4) blur(10px);position:sticky;top:0;z-index:20}
+.brand{letter-spacing:-.01em}
+.logo{box-shadow:var(--shadow-sm)}
+.school-chip{background:linear-gradient(180deg,#fff,var(--soft));box-shadow:var(--shadow-sm)}
+.nav a{position:relative;transition:background .18s var(--ease),color .18s var(--ease),transform .18s var(--ease)}
+.nav a:hover{transform:translateX(2px)}
+.nav a.on{background:linear-gradient(90deg,var(--tint),#e9f5fb)}
+.nav a.on::before{content:"";position:absolute;left:-16px;top:10px;bottom:10px;width:4px;border-radius:0 4px 4px 0;background:var(--primary)}
+.content{animation:rise .35s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* kartu */
+.card{box-shadow:var(--shadow-sm);transition:box-shadow .2s var(--ease),transform .2s var(--ease),border-color .2s}
+a.card:hover,.card.hover:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:var(--border-strong)}
+.card-t{letter-spacing:-.005em}
+.stat{padding:2px 0}
+.stat .v{letter-spacing:-.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* tombol */
+.btn{box-shadow:var(--shadow-sm);transition:background .18s,box-shadow .18s var(--ease),transform .12s var(--ease),border-color .18s}
+.btn:not(.sec):not(.danger){background:var(--grad);border-color:transparent}
+.btn:not(.sec):not(.danger):hover{background:linear-gradient(135deg,#0a93d6 0%,#006aa3 100%);box-shadow:var(--shadow-md)}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0);box-shadow:none}
+.iconbtn{transition:background .18s,box-shadow .18s}
+.iconbtn:hover{box-shadow:var(--shadow-sm)}
+.avatar{transition:box-shadow .18s;box-shadow:0 0 0 2px #fff,0 0 0 3px var(--border)}
+.avatar:hover{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--primary)}
+.pop{box-shadow:var(--shadow-lg);animation:rise .18s var(--ease) both}
+
+/* label / alert */
+.pill{letter-spacing:.01em}
+.pill.act{background:var(--grad)}
+.alert{box-shadow:var(--shadow-sm)}
+.callout{border-radius:12px}
+
+/* tabel */
+.card .tablewrap{margin:0 -8px}
+thead th{background:var(--bg);position:sticky;top:0}
+thead th:first-child{border-top-left-radius:8px}thead th:last-child{border-top-right-radius:8px}
+tbody tr{transition:background .15s}
+tbody tr:nth-child(even) td{background:rgba(238,242,251,.35)}
+tbody tr:hover td{background:var(--tint)}
+td{border-bottom-color:var(--border)}
+tbody tr:last-child td{border-bottom:0}
+
+/* unggah */
+.drop{background:linear-gradient(180deg,#fff,#f8fbff);border-color:#a9c3d6;transition:background .2s,border-color .2s,transform .2s var(--ease),box-shadow .2s}
+.drop:hover{border-color:var(--primary);box-shadow:var(--shadow-md)}
+.drop.over{transform:scale(1.01);background:var(--tint)}
+.drop .big{padding:10px;box-sizing:content-box;background:var(--tint);border-radius:50%}
+.prog{height:10px;box-shadow:inset 0 1px 2px rgba(19,27,46,.08)}
+.prog>div{background:var(--grad)}
+
+/* form */
+.field input,.field select,.field textarea{transition:border-color .15s,box-shadow .15s}
+.field input:hover,.field select:hover{border-color:#a7aab3}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--primary);box-shadow:0 0 0 4px rgba(0,123,185,.15)}
+.field input[aria-invalid=true]:focus{box-shadow:0 0 0 4px rgba(154,52,18,.15)}
+.fgroup{box-shadow:var(--shadow-sm);transition:box-shadow .2s}
+.fgroup[open]{box-shadow:var(--shadow-md)}
+.fgroup>summary{border-radius:var(--radius-sm)}
+.fgroup>summary:hover{background:var(--bg)}
+
+/* hasil */
+.pred-card{background:linear-gradient(135deg,#fff 0,#f1f8fd 100%)}
+.pred-card .big{letter-spacing:-.02em}
+.chart{filter:drop-shadow(0 2px 6px rgba(19,27,46,.05))}
+
+/* halaman masuk */
+.auth-hero{background:radial-gradient(700px 400px at 0 0,#1a95d1 0,transparent 60%),linear-gradient(160deg,#006fa8,#004a73)}
+.auth-hero li span{background:rgba(255,255,255,.1);backdrop-filter:blur(4px)}
+.auth-form{background:#fff}
+.auth-form form{padding:8px 0}
+
+/* scrollbar halus */
+*{scrollbar-width:thin;scrollbar-color:#c5ccd8 transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#c5ccd8;border-radius:10px;border:2px solid transparent;background-clip:content-box}
+
+@media (max-width:960px){
+  .nav a.on::before{left:-8px}
+  .top{position:sticky}
+}
+@media (prefers-reduced-motion:reduce){
+  .content,.pop{animation:none}
+  .btn:hover,.nav a:hover,a.card:hover{transform:none}
+}
+@media print{
+  .side,.top,.scrim{display:none!important}
+  body{background:#fff}.card{box-shadow:none}
+}
+
+/* Kartu sebaris dengan tinggi sama; tombol di dasar kartu */
+.row.equal{align-items:stretch}
+.row.equal>.card>.btn{margin-top:auto}
