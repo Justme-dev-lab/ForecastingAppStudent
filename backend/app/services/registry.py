@@ -21,7 +21,7 @@ DISPLAY = {
     "B_sumberdaya_sekolah": ("Model B: Sumber Daya Sekolah", "Sumber daya sekolah (pendidik, ruang kelas, internet, dst.) dan skor tahun lalu."),
     "C_sosek_siswa": ("Model C: Sosial-Ekonomi Siswa", "Survei latar belakang siswa (agregat sekolah) dan skor tahun lalu."),
     "D_sosek_agregat_iklim_akreditasi": ("Model D: Iklim & Akreditasi", "Indikator iklim sekolah, akreditasi, dan SES agregat, plus skor tahun lalu."),
-    "E_gabungan": ("Model E: Gabungan (utama)", "Semua kelompok fitur sekolah, sosial-ekonomi, dan wilayah."),
+    "E_gabungan": ("Model E: Gabungan", "Semua kelompok fitur sekolah, sosial-ekonomi, dan wilayah."),
     "E_sel": ("Model E-sel: Fitur Terpilih", "56 fitur teratas hasil seleksi (termasuk skor NUM dan LIT tahun lalu). RMSE validasi terbaik."),
 }
 

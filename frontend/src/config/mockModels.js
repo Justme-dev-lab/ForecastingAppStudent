@@ -4,7 +4,20 @@ const lagNum = num('num_lag1', 'Skor NUM tahun sebelumnya', 'Skor tahun sebelumn
 
 export const MOCK_MODELS = [
   {
-    id: 'E_gabungan', name: 'Model E: Gabungan (utama)', description: 'Contoh mock: semua kelompok fitur.', is_default: true,
+    id: 'E_sel', name: 'Model E-sel: Fitur Terpilih', description: 'Contoh mock: fitur terpilih hasil seleksi.', is_default: true,
+    rmse_test: { num: 6.3846, lit: 8.2604 },
+    rmse_persistence: { num: 5.354, lit: 7.121 },
+    numeric_fields: [
+      lagLit, lagNum,
+      num('jumlah_peserta_didik__lag1', 'Jumlah peserta didik', 'Sumber daya sekolah', 400, 20, 2000),
+      num('ses_siswa__lag1', 'Status sosial-ekonomi siswa (SES)', 'Latar belakang siswa (survei)', 0, -3, 3),
+    ],
+    categorical_fields: [
+      { name: 'sts_sek', label: 'Status sekolah', group: 'Identitas & wilayah', required: false, options: ['negeri', 'swasta'] },
+    ],
+  },
+  {
+    id: 'E_gabungan', name: 'Model E: Gabungan', description: 'Contoh mock: semua kelompok fitur.', is_default: false,
     rmse_test: { num: 5.9326, lit: 8.2902 },
     rmse_persistence: { num: 5.354, lit: 7.121 },
     numeric_fields: [

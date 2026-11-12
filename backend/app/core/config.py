@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     api_v1_prefix: str = "/api/v1"
 
     models_dir: str = str(BASE_DIR / "ml_models")
-    default_model_id: str = "E_gabungan"   # model dengan RMSE validasi terbaik di notebook
+    default_model_id: str = "E_sel"   # model yang disarankan: RMSE validasi terbaik di notebook
 
     cors_origins: list[str] = [
         "http://localhost:5173",   # Vite

@@ -112,6 +112,7 @@ export default function Forecasting() {
               {models && models.map(m => <option key={m.id} value={m.id}>{m.name}{m.is_default ? ' (disarankan)' : ''}</option>)}
             </select>
             {model && <span className="muted" style={{ fontSize: 13 }}>{model.description}</span>}
+            <span className="muted" style={{ fontSize: 13 }}>Ingin membandingkan model? Lihat <Link to="/model">tabel evaluasi di Tentang Model</Link>.</span>
           </div>
           <p className="muted" style={{ fontSize: 14, lineHeight: 1.6 }}>Forecasting berjalan untuk sekolah akun Anda. Skor LIT dan/atau NUM tahun terakhir di data Anda menjadi masukan utama model.</p>
           {error && <div className="alert warn" role="alert"><Icon name="alert" /><div><div className="t">Forecast belum bisa dijalankan</div><div className="b">{error}</div></div></div>}
