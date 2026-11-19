@@ -1,0 +1,240 @@
+Kolom,Nama Indikator,Definisi Konseptual Indikator,Definisi Operasional Indikator,Rentang Nilai/Keterangan,Sumber Data
+kd_sekolah,kode sekolah/satuan pendidikan,NULL,NULL,kode unik,-
+pendidikan_sederajat,jenjang pendidikan sederajat suatu sekolah,NULL,NULL,"SD/MI = SD/MI sederajat
+SMP/MTs = SMP/MTs sederajat
+SMA/SMK/MA = SMA/SMK/MA sederajat",AN
+jenis_sek,identitas satuan pendidikan,NULL,NULL,"SD/MI sederajat = SD, MI, SDTK, Adi WP, Paket A, PPS Ula, SPKSD
+SMP/MTs sederajat = SMP, MTs, SMPTK, Madya WP, Paket B, PPS Wustha, 
+SMA/SMK/MA sedarajat = SMA, SMK, SMAg.K, Paket C,  PPS Ulya, MA, MAK, SMTK, SMAK, Utama WP",Dapodik
+sts_sek,status pendidikan sekolah,NULL,NULL,"N = Negeri
+S =  Swasta",Dapodik
+kurikulum,implementasi kurikulum yang diterapkan di satuan pendidikan,NULL,NULL,"Kurikulum Merdeka
+Kurikulum 2013",Dapodik
+daerah_khusus,wilayah satuan pendidikan yang berada pada daerah khusus berdasarkan kondisi geografis sesuai dengan Kepmendikbudristek Nomor 160/P/2021,NULL,NULL,"Ya = satuan pendidikan berada di daerah khusus
+Tidak = satuan pendidikan tidak berada di daerah khusus",Dapodik
+kd_kokab,kode kabupaten/kota,NULL,NULL,kode unik,-
+wilayah_bagian,wilayah bagian berdasarkan pembagaian zona waktu,NULL,NULL,Indonesia Barat; Indonesia Tengah; Indonesia Timur,Lainnya
+jenis_wilayah,bentuk suatu wilayah,NULL,NULL,Kabupaten atau Kota,Dapodik
+status_wilayah,kondisi suatu wilayah,NULL,NULL,urban atau rural,Dapodik
+proporsi_pendidik_min_s1,proporsi pendidik minimal S1 dibandingkan dengan total pendidik yang ada di satuan pendidikan,NULL,NULL,0%-100%,Dapodik
+proporsi_pendidik_sertifikasi,proporsi pendidik bersertifikasi dibandingkan dengan total pendidik yang ada (baik tersertifikasi maupun belum tersertifikasi) di satuan pendidikan,NULL,NULL,0%-100%,Dapodik
+jumlah_peserta_didik,total peserta didik di satuan pendidikan,NULL,NULL,0-tak terhingga,Dapodik
+jumlah_pendidik,total pendidik di satuan pendidikan,NULL,NULL,0-tak terhingga,Dapodik
+rasio_pendidik_peserta_didik,rasio antara pendidik dengan peserta didik,NULL,NULL,0%-100%,Dapodik
+jumlah_r_kelas,jumlah ruang kelas di satuan pendidikan,NULL,NULL,0-tak terhingga,Dapodik
+ketersediaan_internet,ketersediaan internet di satuan pendidikan,NULL,NULL,"Ada;
+Tidak Ada",Dapodik
+ketersediaan_listrik,ketersediaan listrik di satuan pendidikan,NULL,NULL,"Ada;
+Tidak Ada",Dapodik
+jumlah_komp_milik,jumlah komputer yang dimiliki oleh satuan pendidikan,NULL,NULL,0-tak terhingga,Dapodik
+jumlah_perpus,jumlah perpustakaan di satuan pendidikan,NULL,NULL,0-tak terhingga,Dapodik
+jumlah_rombel,jumlah rombongan belajar (rombel)/kelas di satuan pendidikan,NULL,NULL,0-tak terhingga,Dapodik
+jumlah_siswa_rombel,jumlah siswa dalam rombongan belajar (rombel)/kelas V atau kelas VIII atau kelas XI,NULL,NULL,0-tak terhingga,Dapodik
+jumlah_siswa_penerima_PIP,jumlah siswa penerima PIP (Program Indonesia Pintar),NULL,NULL,0-tak terhingga,Dapodik
+rasio_siswa_penerima_PIP,jumlah siswa penerima PIP (Program Indonesia Pintar) dibandingkan dengan total peserta didik di satuan pendidikan,NULL,NULL,0%-100%,Dapodik
+kd_siswa_an,kode siswa,NULL,NULL,kode unik
+bg1,Apakah kamu perempuan atau laki-laki?,NULL,NULL,"A1 = Laki-laki
+B1 = Perempuan",AN
+bg2,Ada berapa keluarga yang tinggal bersama di rumahmu?,NULL,NULL,"A1 = Hanya keluarga intiku sendiri (orang tua dan saudara kandungku saja)
+B1 = Keluargaku bersama satu keluarga lain
+C1 = Keluargaku bersama dua keluarga lain
+D1 = Keluargaku bersama tiga atau lebih keluarga lain",AN
+bg3,Apa jenjang sekolah tertinggi yang diselesaikan ayahmu?,NULL,NULL,"A1 = SD
+B1 = SMP
+C1 = SMA/SMK
+D1 = Diploma (D1, D2, atau D3)
+E1 = Sarjana (S1)
+F1 = Master (S2)
+G1 = Doktor (S3)
+H1 = Tidak Tahu",AN
+bg4,Apa jenjang sekolah tertinggi yang diselesaikan ibumu?,NULL,NULL,"A2 = SD
+B2 = SMP
+C2 = SMA/SMK
+D2 = Diploma (D1, D2, atau D3)
+E2 = Sarjana (S1)
+F2 = Master (S2)
+G2 = Doktor (S3)
+H2 = Tidak Tahu",AN
+bg5,Apa pekerjaan ayahmu?,NULL,NULL,"A1 = Tidak bekerja (termasuk jika sudah meninggal), mengurus rumah tangga (termasuk ibu rumah tangga), atau kerja serabutan (tidak jelas)
+B1 = Pensiunan dari karyawan pemerintah, perusahaan swasta, militer, atau polisi
+C1 = Anggota militer (TNI/tentara) atau polisi (Polri)
+D1 = Perwira militer (TNI/tentara) atau polisi (Polri)
+E1 = Buruh pabrik/tani/tambang, asisten/pembantu rumah tangga, pengemudi/sopir (termasuk taksi online), petugas keamanan, petugas kebersihan, dan karyawan usaha kecil (pelayan toko, mini market, dll)
+F1 = Bekerja mandiri dengan keterampilan khusus (seperti montir bengkel, penjahit, tukang kayu, bertani di ladang sendiri, nelayan dengan kapal sendiri, dll.)
+G1 = Tenaga pemasaran (seperti sales, marketing)
+H1 = Pekerja administratif (seperti sekretaris, tata usaha, receptionist, front office, costumer service) di kantor pemerintah (termasuk PNS), di perusahaan BUMN, dan di perusahaan swasta.
+I1 = Manajer atau pemimpin/kepala/pejabat di kantor pemerintah, perusahaan BUMN, atau perusahaan swasta.
+J1 = Profesional (seperti dosen, guru, dokter, bidan, pengacara, jaksa, insinyur/engineer, musisi, nakoda kapal, pilot, dll.)	
+K1 = Anggota legislatif (DPR atau DPRD) atau pemimpin pemerintah (seperti gubernur, walikota, bupati)
+L1 = Pemilik usaha kecil (seperti pemilik toko kecil, bengkel, warung, pemilik rental mobil, dll.)
+M1 = Pemilik perusahaan besar (seperti pabrik besar, restoran besar, toko dengan banyak cabang, dll.
+N1 = Tidak tahu.",AN
+bg6,Apa pekerjaan ibumu?,NULL,NULL,"A2 = Tidak bekerja (termasuk jika sudah meninggal), mengurus rumah tangga (termasuk ibu rumah tangga), atau kerja serabutan (tidak jelas)
+B2 = Pensiunan dari karyawan pemerintah, perusahaan swasta, militer, atau polisi
+C2 = Anggota militer (TNI/tentara) atau polisi (Polri)
+D2 = Perwira militer (TNI/tentara) atau polisi (Polri)
+E2 = Buruh pabrik/tani/tambang, asisten/pembantu rumah tangga, pengemudi/sopir (termasuk taksi online), petugas keamanan, petugas kebersihan, dan karyawan usaha kecil (pelayan toko, mini market, dll)
+F2 = Bekerja mandiri dengan keterampilan khusus (seperti montir bengkel, penjahit, tukang kayu, bertani di ladang sendiri, nelayan dengan kapal sendiri, dll.)
+G2 = Tenaga pemasaran (seperti sales, marketing)
+H2 = Pekerja administratif (seperti sekretaris, tata usaha, receptionist, front office, costumer service) di kantor pemerintah (termasuk PNS), di perusahaan BUMN, dan di perusahaan swasta.
+I2 = Manajer atau pemimpin/kepala/pejabat di kantor pemerintah, perusahaan BUMN, atau perusahaan swasta.
+J2 = Profesional (seperti dosen, guru, dokter, bidan, pengacara, jaksa, insinyur/engineer, musisi, nakoda kapal, pilot, dll.) 
+K2 = Anggota legislatif (DPR atau DPRD) atau pemimpin pemerintah (seperti gubernur, walikota, bupati)
+L2 = Pemilik usaha kecil (seperti pemilik toko kecil, bengkel, warung, pemilik rental mobil, dll.)
+M2 = Pemilik perusahaan besar (seperti pabrik besar, restoran besar, toko dengan banyak cabang, dll.
+N2 = Tidak tahu.",AN
+bg7,Kepemilikan Meja belajar di rumah,NULL,NULL,"A1 = Tidak ada
+B1 = Ada",AN
+bg8,Kamar tidur untuk dirimu sendiri (tidak berbagi dengan saudara atau orang lain),NULL,NULL,"A2 = Tidak ada
+B2 = Ada",AN
+bg9,Tempat belajar yang tenang di rumah,NULL,NULL,"A3 = Tidak ada
+B3 = Ada",AN
+bg10,Listrik dan lampu untuk belajar di rumah pada malam hari,NULL,NULL,"A4 = Tidak ada
+B4 = Ada",AN
+bg11,"Komputer, laptop, atau tablet yang bisa kamu pakai untuk keperluan belajar atau tugas sekolah",NULL,NULL,"A5 = Tidak ada
+B5 = Ada",AN
+bg12,Kepemilikan perangkat lunak (software atau program komputer) pendidikan,NULL,NULL,"A6 = Tidak ada
+B6 = Ada",AN
+bg13,Sambungan ke internet di rumah,NULL,NULL,"A7 = Tidak ada
+B7 = Ada",AN
+bg14,"Kepemilikan alat baca buku digital (seperti Kindle, Kobo, dll)",NULL,NULL,"A8 = Tidak ada
+B8 = Ada",AN
+bg15,"Kepemilikan buku-buku fiksi/sastra seperti novel, kumpulan cerpen, atau kumpulan puisi",NULL,NULL,"A1 = Tidak ada
+B1 = Kira-kira 1-10 buku	
+C1 = Kira-kira 11-25 buku
+D1 = Kira-kira 26-100 buku
+E1 = Kira-kira lebih dari 100 buku",AN
+bg16,Kepemilikan buku-buku tentang sains atau teknologi,NULL,NULL,"A2 = Tidak ada
+B2 = Kira-kira 1-10 buku 
+C2 = Kira-kira 11-25 buku
+D2 = Kira-kira 26-100 buku
+E2 = Kira-kira lebih dari 100 buku",AN
+bg17,"Kepemilikan buku-buku tentang seni, musik, atau desain",NULL,NULL,"A3 = Tidak ada
+B3 = Kira-kira 1-10 buku 
+C3 = Kira-kira 11-25 buku
+D3 = Kira-kira 26-100 buku
+E3 = Kira-kira lebih dari 100 buku",AN
+bg18,"Kepemilikan buku-buku tentang bahasa, termasuk kamus",NULL,NULL,"A4 = Tidak ada
+B4 = Kira-kira 1-10 buku 
+C4 = Kira-kira 11-25 buku
+D4 = Kira-kira 26-100 buku
+E4 = Kira-kira lebih dari 100 buku",AN
+bg19,Kepemilikan buku-buku yang bisa membantumu mengerjakan tugas-tugas sekolah,NULL,NULL,"A5 = Tidak ada
+B5 = Kira-kira 1-10 buku 
+C5 = Kira-kira 11-25 buku
+D5 = Kira-kira 26-100 buku
+E5 = Kira-kira lebih dari 100 buku",AN
+bg20,Kepemilikan televisi layar datar,NULL,NULL,"A1 = Tidak ada
+B1 = Satu
+C1 = Dua
+D1 = Tiga atau lebih",AN
+bg21,Kepemilikan mobil,NULL,NULL,"A2 = Tidak ada
+B2 = Satu
+C2 = Dua
+D2 = Tiga atau lebih",AN
+bg22,Kepemilikan Pendingin Ruangan (AC),NULL,NULL,"A3 = Tidak ada
+B3 = Satu
+C3 = Dua
+D3 = Tiga atau lebih",AN
+bg23,"Kepemilikan telepon seluler (handphone) dengan akses internet (misal, smartphone)",NULL,NULL,"A4 = Tidak ada
+B4 = Satu
+C4 = Dua
+D4 = Tiga atau lebih",AN
+bg24,Kepemilikan komputer tablet (Tab/iPad),NULL,NULL,"A5 = Tidak ada
+B5 = Satu
+C5 = Dua
+D5 = Tiga atau lebih",AN
+bg25,Kpemilikan karya-karya seni (misal: lukisan/patung seni),NULL,NULL,"A6 = Tidak ada
+B6 = Satu
+C6 = Dua
+D6 = Tiga atau lebih",AN
+SES_siswa,Indeks sosial ekonomi status siswa berdasarkan Asesmen Nasional,NULL,NULL,0-100,Dapodik
+LIT,Skor kemampuan literasi,"Kemampuan peserta didik dalam memahami, menggunakan, mengevaluasi, merefleksikan berbagai jenis teks untuk menyelesaikan masalah dan mengembangkan kapasitas individu sebagai warga Indonesia dan warga dunia agar dapat berkontribusi secara produktif di masyarakat.","Nilai rerata peserta didik berdasarkan kemampuan dalam memahami, menggunakan, merefleksi, dan mengevaluasi beragam jenis teks (teks informasional dan teks fiksi).",0-100,AN
+LIT_INF,Skor kompetensi membaca teks informasi,"Kemampuan peserta didik dalam memahami, menggunakan, merefleksi, dan mengevaluasi teks informasional (non-fiksi)","Nilai rerata peserta didik dalam memahami, menggunakan, merefleksi, dan mengevaluasi teks informasional (non-fiksi)",0-100,AN
+LIT_SAS,Skor kompetensi membaca teks sastra,"Kemampuan peserta didik dalam memahami, menggunakan, merefleksi, dan mengevaluasi teks sastra (fiksi)","Nilai rerata peserta didik dalam memahami, menggunakan, merefleksi, dan mengevaluasi teks sastra (fiksi)",0-100,AN
+LIT_L1,Skor kompetensi mengakses dan menemukan isi teks,"Kemampuan peserta didik menemukan, mengidentifikasi, dan mendeskripsikan suatu ide atau informasi eksplisit dalam teks informasional (non-fiksi) dan sastra","Nilai rerata peserta didik pada kemampuan menemukan, mengidentifikasi, dan mendeskripsikan suatu ide atau informasi eksplisit dalam teks informasional (non-fiksi) dan sastra",0-100,AN
+LIT_L2,Skor kompetensi menginterpretasi dan memahami isi teks,"Kemampuan peserta didik dalam membandingkan dan mengontraskan ide atau informasi dalam atau antarteks, membuat kesimpulan, mengelompokkan, serta mengombinasikan ide dan informasi dalam teks atau antarteks informasional (non-fiksi) dan sastra","Nilai rerata peserta didik pada kemampuan membandingkan dan mengontraskan ide atau informasi dalam atau antarteks, membuat kesimpulan, mengelompokkan, serta mengombinasikan ide dan informasi dalam teks atau antarteks informasional (non-fiksi) dan sastra",0-100,AN
+LIT_L3,Skor kompetensi mengevaluasi dan merefleksi isi teks,"Kemampuan peserta didik dalam menganalisis, memprediksi, dan menilai konten, bahasa, dan unsur-unsur dalam teks informasional (non-fiksi) dan sastra","Nilai rerata peserta didik pada kemampuan menganalisis, memprediksi, dan menilai konten, bahasa, dan unsur-unsur dalam teks informasional (non-fiksi) dan sastra",0-100,AN
+NUM,Skor kemampuan numerasi,"Kemampuan peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika untuk menyelesaikan masalah sehari-hari pada berbagai jenis konteks yang relevan untuk individu sebagai warga negara Indonesia dan dunia.","Nilai rerata peserta didik berdasarkan kemampuan dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika untuk menyelesaikan masalah sehari-hari pada berbagai jenis konteks yang relevan.",0-100,AN
+NUM_ALJ,Skor kompetensi pada domain Aljabar,"Kemampuan peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika pada konten aljabar untuk menyelesaikan masalah sehari-hari","Nilai rerata peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika pada konten aljabar untuk menyelesaikan masalah sehari-hari",0-100,AN
+NUM_GEO,Skor kompetensi pada domain Geometri,"Kemampuan peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika pada konten geometri untuk menyelesaikan masalah sehari-hari","Nilai rerata peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika pada konten geometri untuk menyelesaikan masalah sehari-hari",0-100,AN
+NUM_BIL,Skor kompetensi pada domain Bilangan,"Kemampuan peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika pada konten bilangan untuk menyelesaikan masalah sehari-hari","Nilai rerata peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika pada konten bilangan untuk menyelesaikan masalah sehari-hari",0-100,AN
+NUM_DAT,Skor kompetensi pada domain Data dan Ketidakpastian,"Kemampuan peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika pada konten data dan ketidakpastian untuk menyelesaikan masalah sehari-hari","Nilai rerata peserta didik dalam berpikir menggunakan konsep, prosedur, fakta, dan alat matematika pada konten data dan ketidakpastian untuk menyelesaikan masalah sehari-hari",0-100,AN
+NUM_L1,Skor kompetensi mengetahui L1,"Kemampuan peserta didik memahami fakta, proses, konsep, dan prosedur","Nilai rerata peserta didik pada kemampuan memahami fakta, proses, konsep, dan prosedur",0-100,AN
+NUM_L2,Skor kompetensi menerapkan L2,"Kemampuan peserta didik menerapkan pengetahuan dan pemahaman tentang fakta-fakta, relasi, proses, konsep, prosedur, dan metode dengan konteks situasi nyata untuk menyelesaikan masalah atau menjawab pertanyaan.","Nilai rerata peserta didik pada kemampuan menerapkan pengetahuan dan pemahaman tentang fakta-fakta, relasi, proses, konsep, prosedur, dan metode pada konten bilangan dengan konteks situasi nyata untuk menyelesaikan masalah atau menjawab pertanyaan.",0-100,AN
+NUM_L3,Skor kompetensi menalar L3,"Kemampuan peserta didik menganalisis data dan informasi, membuat kesimpulan, dan memperluas pemahaman dalam situasi baru, meliputi situasi yang tidak diketahui sebelumnya atau konteks yang lebih kompleks","Nilai rerata peserta didik pada kemampuan menganalisis data dan informasi, membuat kesimpulan, dan memperluas pemahaman dalam situasi baru, meliputi situasi yang tidak diketahui sebelumnya atau konteks yang lebih kompleks",0-100,AN
+ACH,Ekspektasi akademik menurut siswa,Mengkomunikasikan pesan bahwa guru percaya akan kemampuan semua siswa untuk belajar dan berprestasi secara akademik berdasarkan pandangan siswa,Nilai komposit siswa dalam mengkomunikasikan pesan bahwa guru percaya akan kemampuan semua siswa untuk belajar dan berprestasi secara akademik.,0-100,AN
+AIN,Instruksi yang adaptif menurut siswa,"Praktik adaptasi pengajaran oleh guru
+sebagai respon atas umpan balik dan
+respon siswa terhadap kebutuhan
+belajarnya berdasarkan pandangan siswa",Nilai komposit siswa terhadap praktik adaptasi pengajaran yang dilakukan di sekolah sesuai dengan kebutuhan siswa,0-100,AN
+AKC,Panduan guru menurut siswa,"Penjelasan guru yang terstruktur tentang materi pelajaran, serta pemberian contoh tentang cara menerapkannya, berdasarkan pandangan siswa",Nilai komposit siswa terhadap cara guru memandu dan mengajar siswa di kelas untuk membentuk pengetahuan baru,0-100,AN
+BCP,Pemahaman dan sikap terhadap hukuman fisik,Pengetahuan dan sikap pendidik untuk menghindari hukuman fisik di satuan pendidikan.,"Nilai komposit dari kepala satuan pendidikan, pendidik, dan peserta didik terkait pengetahuan dan sikap pendidik untuk menghindari hukuman fisik di satuan pendidikan.",0-100,AN
+BUL,Pengalaman perundungan siswa,Perilaku menyakiti orang lain (secara fisik dan psikis) yang dilakukan secara sengaja dan berulang-ulang yang dialami oleh siswa,Nilai komposit terhadap pengalaman perundungan siswa di sekolah,0-100,AN
+CAF,Umpan balik konstruktif menurut siswa,Penyampaian hasil evaluasi guru terhadap hasil pekerjaan dan perilaku siswa sehingga memotivasi siswa untuk terus meningkatkan kemampuannya berdasarkan pandangan siswa,Nilai komposit siswa dalam penyampaian hasil evaluasi guru terhadap pembelajaran sehingga memotivasi siswa untuk terus meningkatkan kemampuannya,0-100,AN
+DIB,Perilaku kepada siswa dengan disabilitas,Sikap guru terhadap disabilitas tentang aspek perialku,Nilai komposit sikap guru mengenai disabilitas yang berkaitan dengan aspek perilaku,0-100,AN
+DIC,Pendapat tentang siswa dengan disabilitas,Sikap guru terhadap disabilitas tentang aspek kognitif,Nilai komposit sikap guru mengenai disabilitas yang berkaitan dengan aspek kognitif,0-100,AN
+DIE,Perasaan tentang siswa dengan disabilitas,Sikap guru terhadap disabilitas tentang aspek afektif,Nilai komposit sikap guru mengenai disabilitas yang berkaitan dengan aspek afektif,0-100,AN
+ECP,Pengalaman hukuman fisik siswa,Hukuman fisik yang diterima karena konsekuensi atas perilaku tertentu berdasarkan pengalaman siswa,Nilai rerata siswa terhadap pengalaman hukuman fisik siswa di sekolah,0-100,AN
+ENP,Penerapan praktik inovatif,Inovasi pembelajaran berdasarkan refleksi yang dilakukan pendidik.,"Nilai komposit kepala satuan pendidikan, pendidik, dan peserta didik terkait praktik pengajaran pendidik yang inovatif untuk meningkatkan kualitas pengajaran",0-100,AN
+EQC,Dukungan atas kesetaraan budaya pimpinan sekolah dan guru,Dukungan atas kesetaraan hak-hak sipil antara kelompok mayoritas dan minoritas budaya dari kepala sekolah dan wakil kepala sekolah dan guru,"Nilai komposit pimpinan sekolah, guru, dan peserta didik terhadap dukungan atas kesetaraan budaya di sekolah di survei lingkungan belajar",0-100,AN
+EQR,Dukungan atas kesetaraan agama pimpinan sekolah dan guru,Dukungan atas kesetaraan hak-hak sipil antara kelompok mayoritas dan minoritas agama dari kepala sekolah dan wakil kepala sekolah. dan guru,"Nilai komposit pimpinan sekolah, guru, dan peserta didik terhadap dukungan atas kesetaraan agama di sekolah di survei lingkungan belajar",0-100,AN
+ESA,Pengalaman siswa terkait narkoba di sekolah,tingkat aktivitas yang berkaitan dengan narkoba di satuan pendidikan dan siswa yang berada pada sekolah tersebut berdasarkan pengalaman siswa,Nilai komposit terhadap pengalaman siswa terkait narkoba di sekolah,0-100,AN
+ESV,Pengalaman/pengetahuan kekerasan seksual siswa,Kekerasan seksual yang diterima berdasarkan pengalaman siswa,Nilai komposit terhadap pengalaman siswa terkait kekerasan seksual di sekolah,0-100,AN
+ISB,Sikap non dikskriminasi dalam pembelajaran menurut siswa,Tingkat sikap non diskriminasi siswa dalam pembelajaran di sekolah,Rata-rata nilai sikap non diskriminasi siswa dalam pembelajaran di sekolah berdasarkan survei lingkungan belajar,0-100,AN
+ITB,Sikap non dikskriminasi dalam pembelajaran menurut guru,Tingkat sikap non diskriminasi guru dalam pembelajaran di sekolah,Rata-rata nilai sikap non diskriminasi guru dalam pembelajaran di sekolah berdasarkan survei lingkungan belajar,0-100,AN
+KKG,Konsepsi terhadap kesetaraan gender menurut siswa,Pendapat/penilaian dan pengetahuan siswa tentang konsep kesetaraan gender,Nilai rerata siswa terhadap pengetahuan dan pemahaman tentang konsep kesetaraan gender di sekolah,0-100,AN
+OCC,Suasana kelas yang mendukung pembelajaran menurut siswa (berubah nama),Suasana kelas yang kondusif untuk proses belajar mengajar (tanpa disrupsi yang mengalihkan perhatian dari aktivitas belajar) berdasarkan pandangan siswa,Nilai komposit siswa terhadap suasana pembelajaran di kelas untuk proses belajar mengajar (tanpa disrupsi yang mengalihkan perhatian dari aktivitas belajar),0-100,AN
+PBR,Penerapan penghargaan dan sanksi secara proporsional menurut siswa (beubah nama),Penerapan prinsip disiplin positif (penguatan atau pembentukan perilaku adaptif) dalam menegakkan aturan kelas yang telah disepakati bersama berdasarkan pandangan siswa,Nilai komposit siswa terhadap penerapan prinsip disiplin positif (penguatan atau pembentukan perilaku adaptif) dalam menegakkan aturan kelas yang telah disepakati bersama.,0-100,AN
+PBU,Program dan kebijakan sekolah tentang perundungan,Program dan kebijakan sekolah yang bertujuan mencegah dan menangani perundungan di sekolah.,Nilai komposit siswa terkait program dan kebijakan sekolah untuk mencegah dan menangani perundungan di sekolah.,0-100,AN
+PCP,Program dan kebijakan sekolah tentang hukuman fisik,Program dan kebijakan sekolah yang bertujuan mencegah dan menangani hukuman fisik di sekolah.,Nilai komposit siswa terkait program dan kebijakan sekolah untuk mencegah dan menangani hukuman fisik di sekolah.,0-100,AN
+PKG,Perilaku siswa terhadap kesetaraan gender,Tindakan-tindakan siswa dalam mendukung kesetaraan gender di lingkungan sekolah,Nilai rerata siswa dalam berperilaku dan bertindak yang mencerminkan kesetaraan gender di sekolah,0-100,AN
+PLIT,Pembelajaran literasi,tingkat kualitas pembelajaran yang berkaitan dengan kriteria aktivitas kognitif khusus pembelajaran literasi,Nilai pembelajaran literasi di survei lingkungan belajar,0-100,AN
+PMU,Partisipasi murid,"Tingkat keterlibatan peserta didik dalam proses perencanaan, pengembangan, dan pelaksanaan aktivitas di satuan pendidikan","Nilai komposit dari kepala satuan pendidikan, pendidik, dan peserta didik terkait tingkat keterlibatan peserta didik dalam proses perencanaan, pengembangan, dan pelaksanaan aktivitas di satuan pendidikan",0-100,AN
+PNUM,Pembelajaran numerasi,tingkat kualitas pembelajaran yang berkaitan dengan kriteria aktivitas kognitif khusus pembelajaran numerasi,Nilai pembelajaran numerasi di survei lingkungan belajar,0-100,AN
+POT,Partisipasi orang tua,"Tingkat keterlibatan orang tua dalam proses perencanaan, pengembangan, dan pelaksanaan aktivitas di satuan pendidikan","Nilai komposit dari kepala satuan pendidikan, pendidik, dan peserta didik terkait tingkat keterlibatan orang tua dalam proses perencanaan, pengembangan, dan pelaksanaan aktivitas di satuan pendidikan",0-100,AN
+PSA,"Program dan kebijakan sekolah tentang penyalahgunaan rokok, minuman keras, dan narkoba","Program dan kebijakan sekolah yang bertujuan mencegah dan menangani aktivitas atau kasus penyalahgunaan rokok, minuman keras, dan narkoba di sekolah.","Nilai rerata siswa terkait program dan kebijakan sekolah untuk mencegah dan menangani aktivitas atau kasus penyalahgunaan rokok, minuman keras, dan narkoba di sekolah.",0-100,AN
+PSV,Program dan kebijakan sekolah tentang kekerasan seksual,Program dan kebijakan sekolah yang bertujuan mencegah dan menangani kasus-kasus kekerasan seksual di sekolah.,Nilai rerata siswa terkait program dan kebijakan sekolah untuk mencegah dan menangani kasus kekerasan seksual di sekolah.,0-100,AN
+RKG,Kebijakan yang mendukung kesetaraan gender,Ketersediaan kebijakan yang mendukung kesetaraan antara laki-laki dan perempuan.,Nilai komposit terhadap ketersediaan kebijakan yang mendukung kesetaraan antara laki-laki dan perempuan.,0-100,AN
+RPI,Program dan kebijakan mengenai penanggulangan dan pencegahan intoleransi di sekolah,Program dan kebijakan satuan pendidikan yang bertujuan mencegah dan menangani kasus-kasus intoleransi di satuan pendidikan.,"Nilai komposit dari kepala satuan pendidikan, pendidik, dan peserta didik terkait program dan kebijakan satuan pendidikan yang bertujuan mencegah dan menangani kasus-kasus intoleransi di satuan pendidikan.",0-100,AN
+SAF,Perasaan aman di sekolah,Persepsi rasa aman yang dirasakan oleh siswa ketika berada di lingkungan sekolah.,Nilai komposit terhadap perasaan aman yang dirasakan siswa saat di sekolah,0-100,AN
+SBU,Efikasi diri perundungan,Keyakinan akan kemampuan guru dan kepala sekolah dalam menangani kasus perundungan yang terjadi di sekolah,Nilai komposit terhadap Keyakinan akan kemampuan guru dan kepala sekolah dalam menangani kasus perundungan yang terjadi di sekolah,0-100,AN
+SKG,Sikap Siswa terhadap kesetaraan gender,Kecenderungan siswa untuk mendukung atau tidak mendukung kesetaraan gender,Nilai rerata siswa dalam mendukung kesetaraan gender di sekolah,0-100,AN
+SMK_GRMAG,Guru SMK melakukan magang di dunia kerja dan kualitas proses magang dalam satu tahun terakhir,Jumlah guru SMK melakukan magang di dunia kerja dan kualitas proses magang dalam satu tahun terakhir,Nilai rerata siswa terhadap keterlaksanaan guru magang di DUDI,0-100,AN
+SMK_GTINS,Guru tamu dan instruktur dari dunia kerja yang mengajar di SMK,Jumlah guru tamu dan instruktur dari dunia kerja yang mengajar di SMK. jumlah jam mengajar. jumlah konsentrasi keahlian yang menghadirkan guru tamu dan instruktur. pengaturan jadwal mengajar guru tamu dan instruktur,Nilai rerata siswa terhadap tingkat keterlaksanaan pembelajaran yang diampu oleh guru/instruktur tamu,0-100,AN
+SMK_INDS,Pelatihan keahlian berbasis industri pada guru SMK menurut siswa,Ketersediaan guru kejuruan dan teknisi yang memiliki pengalaman industri dan sertifikasi kompetensi serta menghadirkan guru tamu sebagai instruktur pembelajaran.,Nilai rerata siswa terhadap terhadap pelatihan keahlian berbasis industri pada guru SMK,0-100,AN
+SMK_PBEL,Penyelenggaraan pembelajaran di sekolah memiliki standar yang selaras dengan kebutuhan dunia kerja menurut siswa,Pelaksanaan proses pembelajaran di kelas yang diselaraskan dengan standar dunia kerja dan skema SKKNI.,Nilai rerata siswa terhadap proses pembelajaran yang selaras dengan DUDI,0-100,AN
+SMK_PIM,"Kepemimpinan kepala sekolah SMK (manajerial, kewirausahaan dan supervisi pembelajaran)",Efektivitas kepemimpinan kepala SMK (manajerial. kewirausahaan dan supervisi pembelajaran) dalam penguatan kerja sama. inovasi. dan pengelolaan sekolah berbasis dunia kerja,Nilai rerata siswa terhadap terhadap efektivitas kepemimpinan kepala SMK dalam penguatan kerja sama. inovasi. dan pengelolaan sekolah berbasis dunia kerja.,0-100,AN
+SMK_SARPR,Penggunaan sarana prasarana pembelajaran selaras dunia kerja,Ketersediaan dan pemanfaatan sarana dan prasarana yang sesuai dengan spesifikasi dunia kerja,Nilai rerata siswa terhadap proses pembelajaran yang selaras dengan Link and match,0-100,AN
+SMK_TEFA,Penyelenggaraan Teaching Factory,Pembelajaran berbasis industri yang menghasilkan produk (barang dan jasa) yang bernilai ekonomis dan diterima pasar.,Nilai rerata siswa terhadap penyelenggaraan teaching factory,0-100,AN
+TAS,Perhatian dan kepedulian guru menurut siswa,Tingkat guru dalam memberikan perhatian dan bantuan ekstra berdasarkan pandangan siswa,Nilai komposit siswa terhadap pemberian perhatian dan kepedulian guru di sekolah,0-100,AN
+TOC,Toleransi budaya pimpinan sekolah dan guru,Sikap menerima dan menghargai budaya agama di sekolah bagi pimpinan sekolah dan guru,Nilai komposit pimpinan sekolah dan guru terhadap sikap menerima dan menghargai keragaman budaya di sekolah di survei lingkungan belajar,0-100,AN
+TOR,Toleransi agama pimpinan sekolah dan guru,Sikap menerima dan menghargai keragaman agama di sekolah bagi pimpinan sekolah dan guru,Nilai komposit pimpinan sekolah dan guru terhadap sikap menerima dan menghargai keragaman agama di sekolah di survei lingkungan belajar,0-100,AN
+TSC,Aktivitas interaktif menurut siswa,Praktik pengajaran yang mendorong kolaborasi dan komunikasi antar siswa dalam konteks memaknai dan memahami materi ajar. berdasarkan pandangan siswa,Nilai komposit siswa terhadap kemampuan mengajar yang mendorong kolaborasi dan komunikasi antar siswa dalam konteks memaknai dan memahami materi ajar.,0-100,AN
+WEL,Perasaan nyaman di sekolah,Persepsi kualitas menjalani kehidupan yang dirasakan oleh siswa ketika berada di lingkungan sekolah,Nilai komposit terhadap kesejahteraan psikologis siswa di sekolah,0-100,AN
+AAKN,Perasaan terkoneksi dan menjadi bagian dari alam,"Merasa bahwa diri adalah bagian dari alam; merasa nyaman berada di lingkungan alam; merasa sakit, sedih, marah ketika mendapati kerusakan alam","Rata-rata nilai karakter siswa dalam merasakan menjadi bagian dari alam; merasa nyaman berada di lingkungan alam; merasa sakit, sedih, marah ketika mendapati kerusakan alam",0-100,AN
+AAMN,Minat terhadap pelestarian alam,"Ketertarikan terhadap hal-hal yang berkaitan dengan kelestarian lingkungan alam, misalnya memikirkan, mencari informasi, dan mempelajari isu-isu tentang kerusakan alam dan cara penanggulangannya, serta kebijakan-kebijakan terkait lingkungan","Rata-rata nilai karakter siswa dalam memikirkan, mencari informasi, dan mempelajari isu-isu tentang kerusakan alam dan cara penanggulangannya, serta kebijakan-kebijakan terkait lingkungan",0-100,AN
+AAPR,Partisipasi dalam aktivitas pelestarian alam,"Segala aktivitas yang dilakukan secara individu atau kelompok dengan tujuan menjaga lingkungan alam (misalnya: penghematan energi, daur ulang, dll); serta adanya kemauan untuk menggerakan dan memotivasi orang lain untuk peduli terhadap pentingnya pelestarian alam baik secara langsung maupun melalui berbagai media lainnya",Rata-rata nilai karakter siswa dalam aktivitas menjaga lingkungan alam dan kemauan untuk menggerakan dan memotivasi orang lain untuk peduli terhadap pentingnya pelestarian alam.,0-100,AN
+ABKR,"Kontribusi pada penyelesaian isu-isu komunitas
+sekolah","Melibatkan diri dalam aktivitas sosial untuk menyelesaikan permasalahan terkait demokrasi, keadilan, dan kesejahteraan sosial dalam konteks sekolah","Rata-rata nilai karakter siswa dalam menyelesaikan permasalahan terkait demokrasi, keadilan, dan kesejahteraan sosial dalam konteks sekolah",0-100,AN
+ABMK,Minat dan kepedulian pada komunitas sekolah,"Minat dan kepedulian untuk menjalankan prinsip-prinsip kehidupan di lingkungan sekolah yang demokratis, adil, dan sejahtera.","Rata-rata nilai karakter siswa dalam menjalankan prinsip-prinsip kehidupan di lingkungan sekolah yang demokratis, adil, dan sejahtera",0-100,AN
+AMKA,Sikap terhadap kesetaraan agama,Dukungan atas kesetaraan hak-hak sipil antara kelompok agama mayoritas dan minoritas,Rata-rata nilai karakter siswa dalam memberikan dukungan atas kesetaraan hak-hak sipil antara kelompok agama mayoritas dan minoritas,0-100,AN
+AMKB,Sikap terhadap kesetaraan budaya,Dukungan atas kesetaraan hak-hak sipil antara kelompok budaya mayoritas dan minoritas,Rata-rata nilai karakter siswa dalam memberikan dukungan atas kesetaraan hak-hak sipil antara kelompok budaya mayoritas dan minoritas,0-100,AN
+AMKG,Sikap terhadap kesetaraan gender,Dukungan atas kesetaraan hak dan kemampuan laki-laki dan perempuan dalam menjalankan peran publik,Rata-rata nilai karakter siswa dalam memberikan dukungan atas kesetaraan hak dan kemampuan laki-laki dan perempuan dalam menjalankan peran publik,0-100,AN
+AMTA,Toleransi agama,Penerimaan dan penghargaan atas keragaman agama,Rata-rata nilai karakter siswa dalam menerima dan menghargai keberagaman agama,0-100,AN
+AMTB,Toleransi budaya,Penerimaan dan penghargaan atas keragaman budaya,Rata-rata nilai karakter siswa dalam menerima dan menghargai keberagaman budaya,0-100,AN
+GRKP,Kepedulian pada isu-isu sosial dan lingkungan,"Kepedulian terhadap hal-hal yang berkaitan dengan penyelesaian masalah sosial dan lingkungan fisik (dalam lingkup pendidikan, kesehatan, ekonomi, kesejahteraan, dan lainnya yang sesuai)","Kepedulian terhadap hal-hal yang berkaitan dengan penyelesaian masalah sosial dan lingkungan fisik (dalam lingkup pendidikan, kesehatan, ekonomi, kesejahteraan, dan lainnya yang sesuai)",0-100,AN
+GRPB,Perilaku berbagi dalam memanfaatkan fasilitas bersama,"Rela berbagi, menjaga dan mengutamakan kepentingan bersama dalam menggunakan sumber daya/fasilitas umum","Rela berbagi, menjaga dan mengutamakan kepentingan bersama dalam menggunakan sumber daya/fasilitas umum",0-100,AN
+GRPR,Partisipasi dalam aktivitas sosial,Berperan dalam aktivitas bersama untuk memperbaiki kondisi lingkungan fisik dan lingkungan sosial,Berperan dalam aktivitas bersama untuk memperbaiki kondisi lingkungan fisik dan lingkungan sosial,0-100,AN
+KGKI,Kepedulian pada isu-isu global,Kesadaran dan kemauan untuk berkontribusi dalam menyelesaikan permasalahan/isu yang sedang terjadi dan berdampak luas pada tatanan dunia,Rata-rata nilai karakter siswa dalam kesadaran dan kemauan untuk berkontribusi dalam menyelesaikan permasalahan/isu yang sedang terjadi dan berdampak luas pada tatanan dunia,0-100,AN
+KGMB,Minat terhadap budaya dari berbagai negara,"Ketertarikan untuk mengetahui dan mempelajari keragaman yang ada di dunia, termasuk gaya hidup, budaya, tradisi, agama, dll","Rata-rata nilai karakter siswa dalam ketertarikan untuk mengetahui dan mempelajari keragaman yang ada di dunia, termasuk gaya hidup, budaya, tradisi, agama.",0-100,AN
+KMPE,Pengelolaan emosi dan pengendalian diri,Mengelola emosi dan motivasi untuk mencapai tujuan; serta menahan diri untuk tidak melakukan sesuatu tanpa pertimbangan agar dapat menuntaskan tugas dengan baik,"Rata-rata nilai karakter siswa dalam kemampuan mengelola emosi dan motivasi untuk mencapai tujuan, menahan diri untuk tidak melakukan sesuatu tanpa pertimbangan, agar dapat menuntaskan tugas dengan baik.",0-100,AN
+KMPR,Melakukan perencanaan secara reflektif,Menetapkan dan merencanakan strategi untuk mencapai tujuan yang didasari penilaian atas kemampuan diri dan tuntutan situasi yang dihadapi,Rata-rata nilai karakter siswa dalam menetapkan dan merencanakan strategi untuk mencapai tujuan yang didasari penilaian atas kemampuan diri dan tuntutan situasi yang dihadapi,0-100,AN
+KRBB,Senang berpikir berbeda,Senang memikirkan cara-cara baru dan berbeda untuk melakukan sesuatu agar lebih baik/cepat/mudah/murah/ menarik/dll.,Rata-rata nilai karakter siswa dalam memikirkan cara-cara baru dan berbeda untuk melakukan sesuatu agar lebih baik/cepat/mudah/murah/ menarik,0-100,AN
+KRMI,Menerapkan ide baru dalam memecahkan masalah,Menggunakan cara-cara baru atau berbeda untuk menyelesaikan masalah dalam kehidupan sehari-hari,Rata-rata nilai karakter siswa dalam enggunakan cara-cara baru atau berbeda untuk menyelesaikan masalah dalam kehidupan sehari-hari,0-100,AN
+KRMK,Membuat karya-karya baru,"Menghasilkan karya pada bidang-bidang yang menuntut daya kreasi misalnya bisnis, sains, teknologi, literatur, seni, dll.","Rata-rata nilai karakter siswa dalam menghasilkan karya pada bidang-bidang yang menuntut daya kreasi misalnya bisnis, sains, teknologi, literatur, seni.",0-100,AN
+NKAE,Analisis dan evaluasi informasi,"Menganalisis dan mengevaluasi informasi dari berbagai perspektif misalnya dengan membandingkan beberapa informasi, menilai kebenaran, menganalisis manfaat atau risiko yang mungkin ditimbulkan, dll.","Rata-rata nilai karakter siswa dalam kemampuan menganalisis dan mengevaluasi informasi dari berbagai perspektif, membandingkan beberapa informasi, menilai kebenaran, menganalisis manfaat atau risiko yang mungkin ditimbulkan.",0-100,AN
+NKPI,Penelusuran informasi,"Mencari informasi yang dibutuhkan atau yang ingin diketahui lebih lanjut; mencari jawaban atas segala pertanyaan, termasuk yang bertentangan dengan pendapat atau keyakinan awal","Rata-rata nilai karakter siswa dalam mencari informasi, mencari jawaban atas segala pertanyaan, termasuk yang bertentangan dengan pendapat atau keyakinan awal",0-100,AN
+NKRE,Refleksi etis dalam pengambilan keputusan,Memanfaatkan hasil analisis dan evaluasi informasi dalam proses pengambilan keputusan; berani mempertanggungjawabkan keputusan yang telah diambil,Rata-rata nilai karakter siswa dalam memanfaatkan hasil analisis dan evaluasi informasi dalam proses pengambilan keputusan serta berani mempertanggungjawabkan keputusan yang telah diambil,0-100,AN
+SES_sekolah,Indeks sosial ekonomi status sekolah berdasarkan agregasi IASP dan Asesmen Nasional,NULL,NULL,0-100,AN
+IASP,Indeks Akses Satuan Pendidikan berdasarkan hasil SUSENAS,NULL,NULL,0-100,Dapodik

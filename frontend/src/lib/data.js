@@ -154,12 +154,12 @@
     return {...base, ok: false, kind: 'isi', message: 'File belum bisa dipakai. Data Anda tidak berubah.', fixes: ['Periksa isi file, lalu unggah ulang.']};
   }
 
-  /* Susun fitur untuk POST /forecast/{model_id}. 
+  /* Susun fitur untuk POST /forecast/{model_id}.
      Karena backend kini mewajibkan num_lag1 dan lit_lag1, kita kirim keduanya sekaligus. */
   function buildFeatures(upload, model) {
     const last = upload.years[upload.years.length - 1];
     const feats = {};
-    
+
     // Masukkan lag untuk semua target yang tersedia di seriesBy atau default-nya
     TARGETS.forEach(t => {
       const s = seriesOf(upload, t.key);
@@ -170,18 +170,18 @@
 
     const row = upload.lastRow || {};
     const pick = name => row[name] ?? row[name.replace(/__lag1$/, '')];
-    
+
     model.numeric_fields.forEach(f => {
       if (LAGS.includes(f.name)) return;
       const v = pick(f.name);
       if (typeof v === 'number' && isFinite(v)) feats[f.name] = v;
     });
-    
+
     model.categorical_fields.forEach(f => {
       const v = pick(f.name);
       if (v !== undefined && f.options.includes(String(v))) feats[f.name] = String(v);
     });
-    
+
     return feats;
   }
 
@@ -207,19 +207,128 @@
     };
   }
 
+  /* ---------- Skema format data (dipakai halaman Bantuan dan contoh file) ---------- */
+  const HEADER = 'pendidikan_sederajat,jenis_sek,sts_sek,kurikulum,daerah_khusus,kd_kokab,wilayah_bagian,jenis_wilayah,status_wilayah,proporsi_pendidik_min_s1,proporsi_pendidik_sertifikasi,jumlah_peserta_didik,jumlah_pendidik,rasio_pendidik_peserta_didik,jumlah_r_kelas,ketersediaan_internet,ketersediaan_listrik,jumlah_komp_milik,jumlah_perpus,jumlah_rombel,jumlah_siswa_rombel,jumlah_siswa_penerima_pip,rasio_siswa_penerima_pip,bg1,bg2,bg3,bg4,bg5,bg6,bg7,bg8,bg9,bg10,bg11,bg12,bg15,bg16,bg17,bg18,bg19,bg20,bg21,bg22,bg23,bg24,bg25,ses_siswa,lit,num,ach,ain,akc,bcp,bul,caf,dib,dic,die,ecp,enp,eqc,eqr,esa,esv,isb,itb,kkg,occ,pbr,pbu,pcp,pkg,plit,pmu,pnum,pot,psa,psv,rkg,rpi,saf,sbu,skg,tas,toc,tor,tsc,wel,ses_sekolah,iasp,tahun,pip_recalc'.split(',');
+
+  const JUMLAH = ['Tidak ada', 'Satu', 'Dua', 'Tiga atau lebih'];
+  const huruf = (n, sufiks) => Array.from({ length: n }, (_, i) => `${String.fromCharCode(97 + i)}${sufiks}`);
+
+  const BG6 = [
+    'anggota legislatif (DPR/DPRD) atau pemimpin pemerintah',
+    'anggota militer (TNI) atau polisi (Polri)',
+    'bekerja mandiri dengan keterampilan khusus',
+    'buruh pabrik/tani/tambang, asisten rumah tangga, sopir, petugas keamanan/kebersihan, karyawan usaha kecil',
+    'manajer atau pemimpin/kepala/pejabat di kantor pemerintah, BUMN, atau swasta',
+    'pekerja administratif di kantor pemerintah, BUMN, atau swasta',
+    'pemilik perusahaan besar',
+    'pemilik usaha kecil',
+    'pensiunan (pemerintah, swasta, militer, atau polisi)',
+    'perwira militer (TNI) atau polisi (Polri)',
+    'profesional (dosen, guru, dokter, pengacara, insinyur, dll.)',
+    'tenaga pemasaran',
+    'tidak bekerja, mengurus rumah tangga, atau kerja serabutan',
+    'tidak tahu',
+  ];
+
+  // { kolom, v1: [...], v2?: [...] } — v2 hanya diisi kalau beda dari v1
+  const KATEGORI = [
+    { kolom: 'pendidikan_sederajat', v1: ['sma/smk/ma'] },
+    { kolom: 'jenis_sek', v1: ['sma', 'smk', 'ma'], v2: ['sma', 'smk', 'ma', 'paket c', 'pps ulya', 'smagk', 'smtk'] },
+    { kolom: 'sts_sek', v1: ['negeri', 'swasta'] },
+    { kolom: 'kurikulum', v1: ['kurikulum 2013', 'kurikulum merdeka', 'smk 2013 rev', 'smk merdeka'], v2: ['kurikulum 2013', 'kurikulum merdeka', 'smk 2013 rev', 'smk merdeka', 'kurikulum sma merdeka'] },
+    { kolom: 'daerah_khusus', v1: ['tidak', 'ya'] },
+    { kolom: 'wilayah_bagian', v1: ['indonesia barat', 'indonesia tengah', 'indonesia timur'] },
+    { kolom: 'jenis_wilayah', v1: ['kabupaten', 'kota'] },
+    { kolom: 'status_wilayah', v1: ['rural', 'urban'] },
+    { kolom: 'ketersediaan_internet', v1: ['ada', 'tidak ada'] },
+    { kolom: 'ketersediaan_listrik', v1: ['ada', 'tidak ada'] },
+  ];
+
+  const BG = [
+    { kolom: 'bg1', v1: ['Laki-laki', 'Perempuan', 'Tidak Diketahui'] },
+    { kolom: 'bg2', v1: ['a1', 'b1', 'c1', 'd1'] },
+    { kolom: 'bg3', v1: huruf(8, '1') },
+    { kolom: 'bg4', v1: ['SD', 'SMP', 'SMA/SMK', 'Diploma (D1, D2, atau D3)', 'Sarjana (S1)', 'Master (S2)', 'Doktor (S3)', 'Tidak Tahu'] },
+    { kolom: 'bg5', v1: huruf(14, '1') },
+    { kolom: 'bg6', v1: BG6 },
+    ...[7, 8, 9, 10, 11, 12].map((n, i) => ({ kolom: `bg${n}`, v1: [`a${i + 1}`, `b${i + 1}`] })),
+    ...[15, 16, 17, 18, 19].map((n, i) => ({ kolom: `bg${n}`, v1: huruf(5, String(i + 1)) })),
+    ...[20, 21, 22, 23, 24, 25].map((n) => ({ kolom: `bg${n}`, v1: JUMLAH })),
+  ];
+
+  // Semua nilai yang diizinkan per kolom kategori (gabungan v1 dan v2)
+  const NILAI_BOLEH = Object.fromEntries(
+    [...KATEGORI, ...BG].map((k) => [k.kolom, [...new Set([...k.v1, ...(k.v2 || [])])]]),
+  );
+
+  /* Pilihan kategori untuk contoh "benar". Hanya pilihan v1 (subset v2), valid di kedua versi. */
+  const CAT_OPTIONS = Object.fromEntries([...KATEGORI, ...BG].map(k => [k.kolom, k.v1]));
+
+  /* Header lengkap (92 kolom), sama persis dengan yang tampil di halaman Bantuan. */
+  const SAMPLE_HEADER = HEADER;
+  /* Indeks survei iklim sekolah (skala 0-100 kasar). */
+  const SURVEY_INDEKS = ['ach', 'ain', 'akc', 'bcp', 'bul', 'caf', 'dib', 'dic', 'die', 'ecp', 'enp', 'eqc', 'eqr',
+    'esa', 'esv', 'isb', 'itb', 'kkg', 'occ', 'pbr', 'pbu', 'pcp', 'pkg', 'plit', 'pmu', 'pnum', 'pot', 'psa', 'psv',
+    'rkg', 'rpi', 'saf', 'sbu', 'skg', 'tas', 'toc', 'tor', 'tsc', 'wel'];
+  /* Kolom survei per siswa: berubah tiap baris (satu baris = satu siswa), dirata-rata oleh analyze(). */
+  const BG_PER_SISWA = ['bg1', 'bg2', 'bg3', 'bg4', 'bg5', 'bg6', 'bg7', 'bg8', 'bg9', 'bg10', 'bg11', 'bg12',
+    'bg15', 'bg16', 'bg17', 'bg18', 'bg19', 'bg20', 'bg21', 'bg22', 'bg23', 'bg24', 'bg25'];
+  /* Kolom identitas sekolah: tetap untuk satu sekolah di seluruh file.
+     jenis_sek dan kurikulum diisi terpisah di sampleCSV agar konsisten (smk memakai kurikulum smk). */
+  const KOLOM_SEKOLAH_TETAP = ['pendidikan_sederajat', 'sts_sek', 'daerah_khusus',
+    'wilayah_bagian', 'jenis_wilayah', 'status_wilayah', 'ketersediaan_internet', 'ketersediaan_listrik'];
+
+  const csvField = v => /[",\n;]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v;
+
   /* Contoh file untuk uji coba (deterministik). */
   function sampleCSV(kode, kind) {
     let s = 7; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+    const pick = opts => opts[Math.floor(rnd() * opts.length)];
+    const num = (min, max, d = 1) => (min + rnd() * (max - min)).toFixed(d);
     const base = {2021: [52, 56], 2022: [53.1, 57.4], 2023: [54.6, 55.8], 2024: [55.2, 58.9], 2025: [57, 60.2]};
-    const withKd = kind === 'campur';
-    const lines = [withKd ? 'kd_sekolah,tahun,lit,num' : 'tahun,lit,num'];
-    Object.keys(base).forEach(y => { for (let i = 0; i < 12; i++) {
-      let code = kode;
-      if (kind === 'campur' && i % 4 === 3) code = String(+kode + (i % 3) + 1);
-      const lit = (base[y][0] + (rnd() - .5) * 12).toFixed(1), num = (base[y][1] + (rnd() - .5) * 12).toFixed(1);
-      lines.push((withKd ? code + ',' : '') + `${y},${lit},${num}`);
-    } });
+
+    if (kind === 'campur') {
+      const lines = ['kd_sekolah,tahun,lit,num'];
+      Object.keys(base).forEach(y => { for (let i = 0; i < 12; i++) {
+        let code = kode;
+        if (i % 4 === 3) code = String(+kode + (i % 3) + 1);
+        const lit = (base[y][0] + (rnd() - .5) * 12).toFixed(1), numv = (base[y][1] + (rnd() - .5) * 12).toFixed(1);
+        lines.push(`${code},${y},${lit},${numv}`);
+      } });
+      return lines.join('\n');
+    }
+
+    // kind === 'benar': header lengkap skema Rapor Pendidikan; kolom kategori hanya memakai CAT_OPTIONS.
+    const sekolah = {};
+    KOLOM_SEKOLAH_TETAP.forEach(k => { sekolah[k] = pick(CAT_OPTIONS[k]); });
+    sekolah.jenis_sek = pick(CAT_OPTIONS.jenis_sek);
+    sekolah.kurikulum = sekolah.jenis_sek === 'smk'
+      ? pick(['smk 2013 rev', 'smk merdeka'])
+      : pick(['kurikulum 2013', 'kurikulum merdeka']);
+    sekolah.kd_kokab = String(1 + Math.floor(rnd() * 500));   // kode kabupaten/kota, bukan daftar tertutup
+
+    const lines = [SAMPLE_HEADER.map(csvField).join(',')];
+    Object.keys(base).forEach(y => {
+      // Agregat level sekolah untuk tahun ini: tetap untuk 12 baris siswa di tahun yang sama.
+      const tahunIni = {
+        proporsi_pendidik_min_s1: num(55, 95), proporsi_pendidik_sertifikasi: num(40, 90),
+        jumlah_peserta_didik: num(150, 900, 0), jumlah_pendidik: num(15, 60, 0),
+        rasio_pendidik_peserta_didik: num(10, 25), jumlah_r_kelas: num(6, 30, 0),
+        jumlah_komp_milik: num(5, 60, 0), jumlah_perpus: num(0, 2, 0), jumlah_rombel: num(6, 30, 0),
+        jumlah_siswa_rombel: num(40, 360, 0), jumlah_siswa_penerima_pip: num(0, 200, 0),
+        rasio_siswa_penerima_pip: num(0, 40), ses_sekolah: num(25, 95, 2), iasp: num(60, 95), pip_recalc: num(0, 60),
+      };
+      SURVEY_INDEKS.forEach(k => { tahunIni[k] = num(30, 90); });
+
+      for (let i = 0; i < 12; i++) {
+        const lit = (base[y][0] + (rnd() - .5) * 12).toFixed(1);
+        const numv = (base[y][1] + (rnd() - .5) * 12).toFixed(1);
+        const row = {...sekolah, ...tahunIni, tahun: y, lit, num: numv, ses_siswa: num(15, 80, 2)};
+        BG_PER_SISWA.forEach(k => { row[k] = pick(CAT_OPTIONS[k]); });
+        lines.push(SAMPLE_HEADER.map(h => csvField(row[h])).join(','));
+      }
+    });
     return lines.join('\n');
   }
 
-export {MAX_BYTES, TARGETS, targetInfo, targetsOf, seriesOf, labelOf, esc, fmt, fmtInt, fmtSize, fmtDate, parseCSV, analyze, buildFeatures, toForecast, sampleCSV};
+export {HEADER, KATEGORI, BG, NILAI_BOLEH, MAX_BYTES, TARGETS, targetInfo, targetsOf, seriesOf, labelOf, esc, fmt, fmtInt, fmtSize, fmtDate, parseCSV, analyze, buildFeatures, toForecast, sampleCSV};

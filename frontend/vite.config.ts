@@ -14,7 +14,15 @@ export default defineConfig({
   server: { 
     host: true, 
     port: 5173, 
-    allowedHosts: ['.devtunnels.ms'] // Hanya mengizinkan domain devtunnels.ms
+    allowedHosts: ['.devtunnels.ms'], // Hanya mengizinkan domain devtunnels.ms
+    proxy: {
+      // Setiap kali frontend memanggil '/api', Vite akan otomatis mengarahkannya ke backend lokal Anda
+      '/api': {
+        target: 'http://localhost:8000', // Sesuaikan dengan port backend Python/FastAPI Anda (misal 8000)
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   },
   preview: { host: true, port: 4173, allowedHosts: true },
 })
